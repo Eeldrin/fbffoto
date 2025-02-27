@@ -12,41 +12,39 @@
 
 
         <!-- Slider Bölümü -->
-        <section x-data="sliderData()" class="relative w-full h-screen overflow-hidden">
+        <section x-data="sliderData()" class="relative w-full h-screen flex items-center justify-center overflow-hidden">
             <!-- Slider İçeriği -->
-            <template x-for="(slide, index) in slides" :key="index">
-                <div class="absolute inset-0 transition-transform duration-700 ease-in-out"
-                    :class="{
-                        'translate-x-0': currentSlide === index,
-                        '-translate-x-full': currentSlide > index,
-                        'translate-x-full': currentSlide < index
-                    }"
-                    :style="'background-image: url(' + slide.img + ')'" class="bg-cover bg-center">
-
-                    <!-- Slider Üstündeki Yazılar -->
-                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                        <div class="text-center text-white p-6 max-w-xl">
-                            <h2 class="text-4xl font-bold mb-4" x-text="slide.title"></h2>
-                            <p class="text-lg mb-6" x-text="slide.description"></p>
-                            <a href="#products"
-                                class="bg-teal-500 text-white py-3 px-8 rounded-lg hover:bg-teal-400 transition">
-                                Ürünleri İncele
-                            </a>
+            <div class="relative w-full h-full flex transition-transform duration-700 ease-in-out"
+                :style="'transform: translateX(' + (-100 * currentSlide) + '%)'">
+                <template x-for="(slide, index) in slides" :key="index">
+                    <div class="w-full h-full flex-shrink-0 relative">
+                        <img :src="slide.img" alt="" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                            <div class="text-center text-white p-6 max-w-xl">
+                                <h2 class="text-4xl font-bold mb-4" x-text="slide.title"></h2>
+                                <p class="text-lg mb-6" x-text="slide.description"></p>
+                                <a href="#products"
+                                    class="bg-teal-500 text-white py-3 px-8 rounded-lg hover:bg-teal-400 transition">
+                                    Ürünleri İncele
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </template>
+                </template>
+            </div>
 
             <!-- Slider Kontrolleri -->
-            <button @click="prevSlide()"
-                class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-teal-500 transition duration-300">
+            <button @click="prevSlide()" aria-label="Önceki"
+                class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full
+        hover:bg-teal-500 transition duration-300 focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
             </button>
-            <button @click="nextSlide()"
-                class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-teal-500 transition duration-300">
+            <button @click="nextSlide()" aria-label="Sonraki"
+                class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full
+        hover:bg-teal-500 transition duration-300 focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -56,12 +54,14 @@
             <!-- Slider İndikatörleri -->
             <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
                 <template x-for="(slide, index) in slides" :key="index">
-                    <button @click="currentSlide = index" class="w-3 h-3 rounded-full"
+                    <button @click="currentSlide = index" aria-label="Slide değiştir"
+                        class="w-3 h-3 rounded-full focus:outline-none"
                         :class="{ 'bg-teal-500': currentSlide === index, 'bg-gray-300': currentSlide !== index }">
                     </button>
                 </template>
             </div>
         </section>
+
 
         <!-- Main Content -->
         <main class="container mx-auto px-6 py-8">
