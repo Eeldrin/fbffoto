@@ -266,7 +266,7 @@
                 this.currentSlide = (this.currentSlide + 1) % this.slides.length;
             },
             prevSlide() {
-                this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+                this.currentSlide = ((this.currentSlide - 1) + this.slides.length) % this.slides.length;
             },
             autoSlide() {
                 setInterval(() => {
