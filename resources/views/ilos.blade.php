@@ -22,7 +22,7 @@
     }
     @media (max-width: 768px) {
       .container {
-        width: 90vw;
+        width: 409px;
         height: 400px;
       }
     }
