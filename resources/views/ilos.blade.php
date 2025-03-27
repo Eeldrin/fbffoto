@@ -8,13 +8,13 @@
     <style>
         .moving-button {
             position: absolute;
-            transition: all 0.3s ease-in-out;
+            transition: transform 0.5s ease-in-out;
         }
     </style>
 </head>
 <body class="flex items-center justify-center h-screen bg-gray-100">
     <div class="text-center relative">
-        <img src="https://via.placeholder.com/200" alt="Özür Dilerim" class="mx-auto mb-4 rounded-lg">
+        <img src="https://i.pinimg.com/originals/2d/8c/70/2d8c7057a36d0c15680962716ee4ddec.jpg" alt="Özür Dilerim" class="mx-auto mb-4 rounded-lg">
         <p id="message" class="text-xl font-semibold mb-4">Seni Üzdüğüm İçin Özür Dilerim, Barışalım mı?</p>
         <div class="relative inline-block">
             <button id="yes-btn" class="bg-green-500 text-white px-6 py-2 rounded-lg mr-4 hover:bg-green-600">Evet</button>
@@ -37,8 +37,7 @@
             const randomX = Math.floor(Math.random() * maxWidth);
             const randomY = Math.floor(Math.random() * maxHeight);
 
-            button.style.left = randomX + "px";
-            button.style.top = randomY + "px";
+            button.style.transform = `translate(${randomX - button.offsetLeft}px, ${randomY - button.offsetTop}px)`;
         });
     </script>
 </body>
