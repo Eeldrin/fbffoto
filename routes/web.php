@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('ilos');
 })->name('ilos');
 
+Route::get('/ilos', function () {
+    return view('ilos');
+})->name('ilos');
+
 Route::get('/photos', function () {
     return view('products.photos');
 })->name('products.photos');
