@@ -42,7 +42,7 @@
   <div class="container text-center relative">
     <img src="https://i.pinimg.com/originals/2d/8c/70/2d8c7057a36d0c15680962716ee4ddec.jpg" alt="Özür Dilerim" class="mx-auto mb-4 rounded-lg" />
     <p id="message" class="text-xl font-semibold mb-4">
-      Seni Üzdüğüm İçin Özür Dilerim, Barışalım mı?
+      Seni Üzdüğüm İçin Özür Dilerim, Barışalım mı? İloşummm
     </p>
     <div class="button-container">
       <button id="yes-btn" class="bg-green-500 text-white px-6 py-2 rounded-lg mr-4 hover:bg-green-600">
