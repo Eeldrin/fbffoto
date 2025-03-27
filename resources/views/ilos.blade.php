@@ -57,7 +57,7 @@
             const randomX = Math.floor(Math.random() * maxX);
             const randomY = Math.floor(Math.random() * maxY);
 
-            button.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            button.style.transform = `translate(${randomX+10}px, ${randomY+10}px)`;
         });
     </script>
 </body>
