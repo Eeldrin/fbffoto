@@ -10,13 +10,26 @@
             position: absolute;
             transition: transform 0.5s ease-in-out;
         }
+        .container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        img {
+            max-width: 200px;
+            max-height: 200px;
+        }
     </style>
 </head>
 <body class="flex items-center justify-center h-screen bg-gray-100">
-    <div class="text-center relative">
+    <div class="container text-center relative">
         <img src="https://i.pinimg.com/originals/2d/8c/70/2d8c7057a36d0c15680962716ee4ddec.jpg" alt="Özür Dilerim" class="mx-auto mb-4 rounded-lg">
         <p id="message" class="text-xl font-semibold mb-4">Seni Üzdüğüm İçin Özür Dilerim, Barışalım mı?</p>
-        <div class="relative inline-block">
+        <div class="relative inline-block w-64 h-32">
             <button id="yes-btn" class="bg-green-500 text-white px-6 py-2 rounded-lg mr-4 hover:bg-green-600">Evet</button>
             <button id="no-btn" class="bg-red-500 text-white px-6 py-2 rounded-lg moving-button">Hayır</button>
         </div>
@@ -31,13 +44,14 @@
 
         document.getElementById("no-btn").addEventListener("mouseover", function() {
             const button = document.getElementById("no-btn");
-            const maxWidth = window.innerWidth - button.offsetWidth;
-            const maxHeight = window.innerHeight - button.offsetHeight;
+            const container = document.querySelector(".container");
+            const maxX = container.clientWidth - button.offsetWidth;
+            const maxY = container.clientHeight - button.offsetHeight;
 
-            const randomX = Math.floor(Math.random() * maxWidth);
-            const randomY = Math.floor(Math.random() * maxHeight);
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
 
-            button.style.transform = `translate(${randomX - button.offsetLeft}px, ${randomY - button.offsetTop}px)`;
+            button.style.transform = `translate(${randomX}px, ${randomY}px)`;
         });
     </script>
 </body>
