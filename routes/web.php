@@ -5,8 +5,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AdminLoginController;
 
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return view('ilos');
+})->name('ilos');
 
 Route::get('/photos', function () {
     return view('products.photos');
